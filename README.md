@@ -1,4 +1,4 @@
-# 4sem4task
+# 4.2
 
 * **time pingpong:** 1.88422s
 * **time with distance:** 0.296807s
