@@ -20,9 +20,9 @@ void dosmth(long long &x) {
 }
 
 struct without {
-    long long ping;
-    int d[16]; // 64 байта
-    long long pong;
+    long long ping; //8 байт
+    int d[13]; // 52 байта
+    long long pong; // 8 байт
     without() : ping(0), pong(0){}
 };
 
