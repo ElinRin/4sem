@@ -1,5 +1,5 @@
 # 4.2
-
+**Компиляция** g++ -std=c++11 -pthread
 * **time pingpong:** 1.88422s
 * **time with distance:** 0.296807s
 
@@ -15,7 +15,7 @@
 
 # 4.3
 
-**Компиляция** g++ -O0 -std=c++11 -latomic
+**Компиляция** g++ -std=c++11 -latomic
 
 **Вывод**
 * Align atomic object. size:5
