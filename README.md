@@ -17,10 +17,10 @@
 
 * **Компиляция** g++ -O0 -std=c++11 -latomic
 * **Вывод**
-* Align atomic object. size:5
-* time: 0.169093s
-* Non align atomic object. size:8
-* time: 0.004037s
+*Align atomic object. size:5
+*time: 0.169093s
+*Non align atomic object. size:8
+*time: 0.004037s
 * One atomic object in one cache line. size:8
 * time: 0.004002s
 * One atomic object in two cache line. size:68
