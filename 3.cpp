@@ -48,7 +48,7 @@ struct InTwoCacheLine
 	char a; //1 байт
 	int d[15]; // 60 байта
 	//3 пустых байта
-	int b; // 8 байт
+	int b; // 4 байт
 	InTwoCacheLine() noexcept : a(0), b(0) {}
 };
 
@@ -122,12 +122,12 @@ int main() {
 	std::atomic<struct InTwoCacheLineAtomic> twoCacheA;
 
 
-	checkTime<struct Align>("Align Atomic Object");
-	checkTime<struct NoAlign>("Non Align Atomic Object");
-	checkTime<struct InOneCacheLine>("One Atomic Object In One Cache Line");
-	checkTime<struct InTwoCacheLine>("One Atomic Object In Two Cache Line");
-	checkTime2<struct InOneCacheLineAtomic>("Two Atomic Object In One Cache Line");
-	checkTime2<struct InTwoCacheLineAtomic>("Two Atomic Object In Two Cache Line");
+	checkTime<struct Align>("Align atomic object.");
+	checkTime<struct NoAlign>("Non align atomic object.");
+	checkTime<struct InOneCacheLine>("One atomic object in one cache line.");
+	checkTime<struct InTwoCacheLine>("One atomic object in two cache line.");
+	checkTime2<struct InOneCacheLineAtomic>("Two atomic object in one cache line.");
+	checkTime2<struct InTwoCacheLineAtomic>("Two atomic object in two cache line.");
 
 
 	//system("pause");
