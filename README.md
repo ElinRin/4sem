@@ -15,7 +15,7 @@
 
 # 4.3
 
-* ** Компиляция ** g++ -O0 -std=c++11 -latomic
+* **Компиляция** g++ -O0 -std=c++11 -latomic
 * **Вывод**
 * Align atomic object. size:5
 * time: 0.169093s
