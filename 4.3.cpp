@@ -5,7 +5,7 @@
 #include <atomic>
 
 const int n = 1e5;
-//Выровненные и невыровненные atomic переменные.
+//Г‚Г»Г°Г®ГўГ­ГҐГ­Г­Г»ГҐ ГЁ Г­ГҐГўГ»Г°Г®ГўГ­ГҐГ­Г­Г»ГҐ atomic ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ.
 #pragma pack(push, 1)
 struct Align
 {
@@ -35,7 +35,7 @@ struct NoAlign
 	}
 };
 
-//Atomic, целиком лежащий в кэш - линии и atomic, пересекающих их границу.
+//Atomic, Г¶ГҐГ«ГЁГЄГ®Г¬ Г«ГҐГ¦Г Г№ГЁГ© Гў ГЄГЅГё - Г«ГЁГ­ГЁГЁ ГЁ atomic, ГЇГҐГ°ГҐГ±ГҐГЄГ ГѕГ№ГЁГµ ГЁГµ ГЈГ°Г Г­ГЁГ¶Гі.
 struct InOneCacheLine
 {
 	char a;
@@ -45,14 +45,14 @@ struct InOneCacheLine
 
 struct InTwoCacheLine
 {
-	char a; //1 байт
-	int d[15]; // 60 байта
-	//3 пустых байта
-	int b; // 4 байт
+	char a; //1 ГЎГ Г©ГІ
+	int d[15]; // 60 ГЎГ Г©ГІГ 
+	//3 ГЇГіГ±ГІГ»Гµ ГЎГ Г©ГІГ 
+	int b; // 4 ГЎГ Г©ГІ
 	InTwoCacheLine() noexcept : a(0), b(0) {}
 };
 
-//Две atomic переменные, лежащие в одной кэш - линии и в разных кэш - линиях.
+//Г„ГўГҐ atomic ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ, Г«ГҐГ¦Г Г№ГЁГҐ Гў Г®Г¤Г­Г®Г© ГЄГЅГё - Г«ГЁГ­ГЁГЁ ГЁ Гў Г°Г Г§Г­Г»Гµ ГЄГЅГё - Г«ГЁГ­ГЁГїГµ.
 struct InOneCacheLineAtomic
 {
 	std::atomic<char> a;
@@ -111,13 +111,13 @@ void checkTime2(std::string type)
 }
 
 int main() {
-	//Выровненные и невыровненные atomic переменные.
+	//Г‚Г»Г°Г®ГўГ­ГҐГ­Г­Г»ГҐ ГЁ Г­ГҐГўГ»Г°Г®ГўГ­ГҐГ­Г­Г»ГҐ atomic ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ.
 	std::atomic<struct Align> align;
 	std::atomic<struct  NoAlign> noAlign;
-	//Atomic, целиком лежащий в кэш - линии и atomic, пересекающих их границу.
+	//Atomic, Г¶ГҐГ«ГЁГЄГ®Г¬ Г«ГҐГ¦Г Г№ГЁГ© Гў ГЄГЅГё - Г«ГЁГ­ГЁГЁ ГЁ atomic, ГЇГҐГ°ГҐГ±ГҐГЄГ ГѕГ№ГЁГµ ГЁГµ ГЈГ°Г Г­ГЁГ¶Гі.
 	std::atomic<struct InOneCacheLine> oneCache;
 	std::atomic<struct InTwoCacheLine> twoCache;
-	//Две atomic переменные, лежащие в одной кэш - линии и в разных кэш - линиях.
+	//Г„ГўГҐ atomic ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ, Г«ГҐГ¦Г Г№ГЁГҐ Гў Г®Г¤Г­Г®Г© ГЄГЅГё - Г«ГЁГ­ГЁГЁ ГЁ Гў Г°Г Г§Г­Г»Гµ ГЄГЅГё - Г«ГЁГ­ГЁГїГµ.
 	std::atomic<struct InOneCacheLineAtomic> oneCacheA;
 	std::atomic<struct InTwoCacheLineAtomic> twoCacheA;
 
