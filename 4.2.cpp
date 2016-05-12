@@ -20,9 +20,9 @@ void dosmth(long long &x) {
 }
 
 struct without {
-    long long ping; //8 αΰις
-    int d[13]; // 52 αΰιςΰ
-    long long pong; // 8 αΰις
+    long long ping; //8 Γ‘Γ Γ©Γ²
+    int d[13]; // 52 Γ‘Γ Γ©Γ²Γ 
+    long long pong; // 8 Γ‘Γ Γ©Γ²
     without() : ping(0), pong(0){}
 };
 
